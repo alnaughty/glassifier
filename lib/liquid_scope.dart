@@ -5,6 +5,7 @@ import 'package:flutter/rendering.dart';
 import 'package:liquid_glass_shader/painter/metaball_painter.dart';
 import 'package:liquid_glass_shader/src/liquid_controller.dart';
 import 'package:liquid_glass_shader/liquid_inherited.dart';
+import 'package:liquid_glass_shader/src/liquid_shader_cache.dart';
 
 class LiquidScope extends StatefulWidget {
   final Widget background;
@@ -40,14 +41,8 @@ class _LiquidScopeState extends State<LiquidScope> {
   }
 
   void _load() async {
-    try {
-      String shaderPath =
-          'packages/liquid_glass_shader/lib/shaders/glass_shader.frag';
-      final p = await ui.FragmentProgram.fromAsset(shaderPath);
-      if (mounted) setState(() => program = p);
-    } catch (e) {
-      debugPrint("Primary shader load failed: $e");
-    }
+    final p = await LiquidShaderCache.getOrLoad();
+    if (mounted) setState(() => program = p);
   }
 
   void _captureBackground() async {

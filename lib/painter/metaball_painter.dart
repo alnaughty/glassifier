@@ -13,6 +13,9 @@ class MetaballPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     if (background != null) {
       shader.setImageSampler(0, background!);
+    } else {
+        // We need some image to satisfy the sampler, but we can't easily create one here.
+        // The shader should ideally handle it, but setImageSampler 0 is usually required.
     }
     
     shader.setFloat(0, size.width);

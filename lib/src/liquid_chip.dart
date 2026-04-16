@@ -7,6 +7,7 @@ class LiquidChip extends StatelessWidget {
   final EdgeInsetsGeometry padding;
   final double borderRadius;
   final Color color;
+  final double blur;
 
   const LiquidChip({
     super.key, 
@@ -15,6 +16,7 @@ class LiquidChip extends StatelessWidget {
     this.padding = const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
     this.borderRadius = 16.0,
     this.color = const Color(0x33FFFFFF), // Default glass tint
+    this.blur = 20.0,
   });
 
   @override
@@ -23,6 +25,7 @@ class LiquidChip extends StatelessWidget {
       padding: padding,
       borderRadius: borderRadius,
       color: color,
+      blur: blur,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,

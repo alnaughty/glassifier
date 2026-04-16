@@ -9,6 +9,7 @@ class LiquidButton extends StatelessWidget {
   final EdgeInsetsGeometry padding;
   final double borderRadius;
   final Color color;
+  final double blur;
 
   const LiquidButton({
     super.key,
@@ -19,6 +20,7 @@ class LiquidButton extends StatelessWidget {
     this.padding = const EdgeInsets.all(16.0),
     this.borderRadius = 20.0,
     this.color = const Color(0x33FFFFFF),
+    this.blur = 20.0,
   });
 
   @override
@@ -29,6 +31,7 @@ class LiquidButton extends StatelessWidget {
         padding: padding,
         borderRadius: borderRadius,
         color: color,
+        blur: blur,
         child: SizedBox(
           width: width,
           height: height,

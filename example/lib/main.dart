@@ -115,12 +115,32 @@ class _LiquidGlassShowcaseState extends State<LiquidGlassShowcase> {
               top: 60,
               left: 20,
               child: Text(
-                "Drag the bubble near others to see the gooey merge.",
+                "Inside Scope (Gooey Merge):",
                 style: TextStyle(color: Colors.white70, fontSize: 16),
               ),
             ),
           ],
         ),
+      ),
+      floatingActionButton: Column(
+        mainAxisSize: MainAxisSize.min,
+        spacing: 16,
+        children: [
+          LiquidChip(label: "Standalone Chip", icon: Icons.bolt),
+          LiquidButton(
+            onPressed: () {},
+            borderRadius: 30,
+            color: Colors.blueAccent.withOpacity(0.4),
+            child: const Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.add, color: Colors.white),
+                SizedBox(width: 8),
+                Text("Standalone Button", style: TextStyle(color: Colors.white)),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
